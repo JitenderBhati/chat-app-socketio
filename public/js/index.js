@@ -4,13 +4,7 @@ socket.on('connect', function(){
 
 //Listen for newMessage event
 socket.on('newMessage', function(message){
-  console.log(message);
-});
-
-//emit createMessage Event by client
-socket.emit('createMessage', {
-  text:'Hello User',
-  from:'Azhar'
+  console.log(JSON.stringify(message, undefined, 2));
 });
 });
 
