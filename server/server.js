@@ -23,9 +23,12 @@ io.on('connection', (socket)=>{
 
 
 //For Listing new message sent from client
-  socket.on('createMessage', (message)=>{
+  socket.on('createMessage', (message, callback)=>{
     console.log(message);
     io.emit('newMessage', generateMessage(message.text, message.from));
+    callback({
+      from:message.from
+    });
   });
 
   socket.emit('newMessage', generateMessage('Welcome to Chat App', 'Admin'));

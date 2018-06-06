@@ -11,3 +11,10 @@ socket.on('newMessage', function(message){
 socket.on('disconnect', function(){
   console.log('Disconnected from Server');
 });
+
+socket.emit('createMessage', {
+  text:'Hello MongoDb', from:'Jitu'
+},
+function(data){
+  console.log('Got it', data.from);
+});
