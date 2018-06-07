@@ -26,9 +26,7 @@ io.on('connection', (socket)=>{
   socket.on('createMessage', (message, callback)=>{
     console.log(message);
     io.emit('newMessage', generateMessage(message.text, message.from));
-    callback({
-      from:message.from
-    });
+    callback();
   });
 
   socket.emit('newMessage', generateMessage('Welcome to Chat App', 'Admin'));
